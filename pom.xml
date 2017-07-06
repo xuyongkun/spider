@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.spider</groupId>
+    <artifactId>spider</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>spider</name>
+    <url>http://www.kenny.cn</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>
+    </properties>
+
+    <modules>
+        <module>spider-common</module>
+        <module>spider-admin</module>
+        <module>spider-upms</module>
+        <module>spider-demo</module>
+        <module>spider-eoms</module>
+        <module>spider-api</module>
+        <module>spider-cms</module>
+        <module>spider-im</module>
+        <module>spider-oa</module>
+        <module>spider-oss</module>
+        <module>spider-pay</module>
+        <module>spider-shop</module>
+        <module>spider-ucenter</module>
+        <module>spider-wechat</module>
+        <module>spider-upms</module>
+    </modules>
+
+</project>
