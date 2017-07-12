@@ -1,8 +1,8 @@
 package com.spider.cms.rpc.api;
 
-import com.zheng.common.base.BaseService;
 import com.spider.cms.dao.model.CmsSystem;
 import com.spider.cms.dao.model.CmsSystemExample;
+import com.spider.common.base.BaseService;
 
 /**
 * CmsSystemService接口

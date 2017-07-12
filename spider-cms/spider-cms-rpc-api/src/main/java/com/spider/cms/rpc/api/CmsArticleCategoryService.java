@@ -1,6 +1,5 @@
 package com.spider.cms.rpc.api;
 
-import com.zheng.common.base.BaseService;
 import com.spider.cms.dao.model.CmsArticleCategory;
 import com.spider.cms.dao.model.CmsArticleCategoryExample;
 

@@ -1,8 +1,8 @@
 package com.spider.cms.rpc.api;
 
-import com.zheng.common.base.BaseService;
 import com.spider.cms.dao.model.CmsTag;
 import com.spider.cms.dao.model.CmsTagExample;
+import com.spider.common.base.BaseService;
 
 /**
 * CmsTagService接口
