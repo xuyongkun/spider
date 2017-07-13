@@ -2,6 +2,7 @@ package com.spider.cms.rpc.api;
 
 import com.spider.cms.dao.model.CmsArticleCategory;
 import com.spider.cms.dao.model.CmsArticleCategoryExample;
+import com.spider.common.base.BaseService;
 
 /**
 * CmsArticleCategoryService接口

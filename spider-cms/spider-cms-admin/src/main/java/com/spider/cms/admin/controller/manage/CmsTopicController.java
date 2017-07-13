@@ -9,6 +9,7 @@ import com.spider.cms.dao.model.CmsTopic;
 import com.spider.cms.dao.model.CmsTopicExample;
 import com.spider.cms.rpc.api.CmsTopicService;
 import com.spider.common.base.BaseController;
+import com.spider.common.validator.LengthValidator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang.StringUtils;

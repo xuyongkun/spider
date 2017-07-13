@@ -1,6 +1,10 @@
 package com.spider.cms.web.interceptor;
 
 
+import com.spider.cms.dao.model.CmsMenu;
+import com.spider.cms.dao.model.CmsMenuExample;
+import com.spider.cms.rpc.api.CmsMenuService;
+import com.spider.common.util.PropertiesFileUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +21,7 @@ import java.util.List;
  */
 public class CmsWebInterceptor extends HandlerInterceptorAdapter {
 
-    private static Logger _log = LoggerFactory.getLogger(CmsWebInterceptor.class);
+    private static Logger logger = LoggerFactory.getLogger(CmsWebInterceptor.class);
 
     @Autowired
     private CmsMenuService cmsMenuService;

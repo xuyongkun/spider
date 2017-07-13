@@ -9,6 +9,7 @@ import com.spider.cms.dao.model.CmsCategory;
 import com.spider.cms.dao.model.CmsCategoryExample;
 import com.spider.cms.rpc.api.CmsCategoryService;
 import com.spider.common.base.BaseController;
+import com.spider.common.validator.LengthValidator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang.StringUtils;

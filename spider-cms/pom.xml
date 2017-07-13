@@ -12,7 +12,6 @@
         <module>spider-cms-dao</module>
         <module>spider-cms-common</module>
         <module>spider-cms-web</module>
-        <module>spider-cms-web</module>
         <module>spider-cms-rpc-api</module>
         <module>spider-cms-rpc-service</module>
         <module>spider-cms-job</module>

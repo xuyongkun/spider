@@ -22,7 +22,7 @@
     <dependencies>
         <dependency>
             <groupId>com.spider</groupId>
-            <artifactId>spider-cms-common</artifactId>
+            <artifactId>spider-upms-common</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>

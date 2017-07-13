@@ -3,7 +3,13 @@ package com.spider.cms.admin.controller.manage;
 import com.baidu.unbiz.fluentvalidator.ComplexResult;
 import com.baidu.unbiz.fluentvalidator.FluentValidator;
 import com.baidu.unbiz.fluentvalidator.ResultCollectors;
-
+import com.spider.cms.commom.constant.CmsResult;
+import com.spider.cms.commom.constant.CmsResultConstant;
+import com.spider.cms.dao.model.CmsPage;
+import com.spider.cms.dao.model.CmsPageExample;
+import com.spider.cms.rpc.api.CmsPageService;
+import com.spider.common.base.BaseController;
+import com.spider.common.validator.LengthValidator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang.StringUtils;
@@ -28,7 +34,7 @@ import java.util.Map;
 @RequestMapping("/manage/page")
 public class CmsPageController extends BaseController {
 
-	private static Logger _log = LoggerFactory.getLogger(CmsPageController.class);
+	private static Logger logger = LoggerFactory.getLogger(CmsPageController.class);
 	
 	@Autowired
 	private CmsPageService cmsPageService;
