@@ -1,12 +1,20 @@
 package com.spider.cms.web.controller;
 
 
+import com.spider.cms.commom.constant.CmsResult;
+import com.spider.cms.commom.constant.CmsResultConstant;
+import com.spider.cms.dao.model.*;
+import com.spider.cms.rpc.api.*;
+import com.spider.common.base.BaseController;
+import com.spider.common.util.Paginator;
+import com.spider.common.util.RequestUtil;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -19,7 +27,7 @@ import java.util.List;
 @RequestMapping(value = "/qa")
 public class QaController extends BaseController {
 
-    private static Logger _log = LoggerFactory.getLogger(QaController.class);
+    private static Logger logger = LoggerFactory.getLogger(QaController.class);
     private static String CODE = "qa";
     private static Integer USERID = 1;
 

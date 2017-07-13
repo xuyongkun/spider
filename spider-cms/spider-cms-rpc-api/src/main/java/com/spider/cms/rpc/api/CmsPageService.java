@@ -2,6 +2,7 @@ package com.spider.cms.rpc.api;
 
 import com.spider.cms.dao.model.CmsPage;
 import com.spider.cms.dao.model.CmsPageExample;
+import com.spider.common.base.BaseService;
 
 /**
 * CmsPageService接口

@@ -1,6 +1,11 @@
 package com.spider.cms.web.controller;
 
 
+import com.spider.cms.dao.model.CmsArticle;
+import com.spider.cms.dao.model.CmsArticleExample;
+import com.spider.cms.rpc.api.CmsArticleService;
+import com.spider.common.base.BaseController;
+import com.spider.common.util.Paginator;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +24,7 @@ import java.util.List;
  * 搜索控制器
  * Created by shuzheng on 2017/3/26.
  */
+
 @Controller
 @RequestMapping(value = "/search")
 public class SearchController extends BaseController {

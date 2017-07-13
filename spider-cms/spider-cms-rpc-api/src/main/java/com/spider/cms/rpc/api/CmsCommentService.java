@@ -2,6 +2,7 @@ package com.spider.cms.rpc.api;
 
 import com.spider.cms.dao.model.CmsComment;
 import com.spider.cms.dao.model.CmsCommentExample;
+import com.spider.common.base.BaseService;
 
 /**
 * CmsCommentService接口
