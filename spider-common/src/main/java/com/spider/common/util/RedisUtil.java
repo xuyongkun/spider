@@ -92,7 +92,7 @@ public class RedisUtil {
 				try {
 					jedis.auth(PASSWORD);
 				} catch (Exception e) {
-
+					e.printStackTrace();
 				}
 			}
 		} catch (Exception e) {

@@ -21,7 +21,7 @@
 		<result column="ctime" jdbcType="BIGINT" property="ctime" />
 		<result column="orders" jdbcType="BIGINT" property="orders" />
 	</resultMap>
-	<resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zheng.cms.dao.model.CmsArticle">
+	<resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.spider.cms.dao.model.CmsArticle">
 		<result column="content" jdbcType="LONGVARCHAR" property="content" />
 	</resultMap>
 
