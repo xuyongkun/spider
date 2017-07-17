@@ -10,7 +10,7 @@
 注：本项目是个人学习项目，目前还未完成，如有兴趣请移步到（https://github.com/shuzheng/zheng），谢谢
 
 ## 前言
-    spider访写的github上zheng项目（https://github.com/shuzheng/zheng）准备加上物联网模块（spider-lot）
+    spider访写的github上zheng项目（https://github.com/shuzheng/zheng）准备加上物联网模块（spider-iot）
 
 　　注 ：`zheng`项目创建于2016年10月4日，正在慢慢成长中，目的不仅仅是一个开发架构，而是努力打造一套从 **前端模板** - **基础框架** - **分布式架构** - **开源项目** - **持续集成** - **自动化部署** - **系统监测** - **无缝升级** 的全方位J2EE企业级开发解决方案。
 
@@ -86,23 +86,23 @@ zheng.jtotop.js | 返回顶部插件  | [https://github.com/shuzheng/zheng.jtoto
 
 #### 模块介绍
 
-> zheng-common
+> spider-common
 
 Spring+SpringMVC+Mybatis框架集成公共模块，包括公共配置、MybatisGenerator扩展插件、通用BaseService、工具类等。
 
-> zheng-admin
+> spider-admin
 
 基于bootstrap实现的响应式Material Design风格的通用后台管理系统，`zheng`项目所有后台系统都是使用该模块界面作为前端展示。
 
-> zheng-ui
+> spider-ui
 
 各个子系统前台thymeleaf模板，前端资源模块，使用nginx代理，实现动静分离。
 
-> zheng-upms
+> spider-upms
 
 本系统是基于RBAC授权和基于用户授权的细粒度权限控制通用平台，并提供单点登录、会话管理和日志管理。接入的系统可自由定义组织、角色、权限、资源等。用户权限=所拥有角色权限合集+用户加权限-用户减权限，优先级：用户减权限>用户加权限>角色权限
 
-> zheng-oss
+> spider-oss
 
 文件存储系统，提供四种方案：
 
@@ -113,18 +113,18 @@ Spring+SpringMVC+Mybatis框架集成公共模块，包括公共配置、MybatisG
 
 ![阿里云OSS](project-bootstrap/aliyun-oss-post-callback.png)
 
-> zheng-api
+> spider-api
 
 接口总线系统，对外暴露统一规范的接口，包括各个子系统的交互接口、对外开放接口、开发加密接口、接口文档等服务，示例图：
 
 ![API网关](project-bootstrap/zheng-api.png)
 
 
-> zheng-cms
+> spider-cms
 
 内容管理系统：支持多标签、多类目、强大评论的内容管理，有基本单页展示，菜单管理，系统设置等功能。
 
-> zheng-pay
+> spider-pay
 
 - 一站式支付解决方案，统一下单接口，支持支付宝、微信、网银等多种支付方式。不涉及业务的纯粹的支付平台。
 
@@ -132,33 +132,18 @@ Spring+SpringMVC+Mybatis框架集成公共模块，包括公共配置、MybatisG
 
 ![统一扫码支付](project-bootstrap/zheng-pay.png)
 
-> zheng-ucenter
+> spider-ucenter
 
 通用用户管理系统， 实现最常用的用户注册、登录、资料管理、个人中心、第三方登录等基本需求，支持扩展二次开发。
 
-> zheng-wechat-mp
+> spider-wechat-mp
 
 微信公众号管理平台，除实现官网后台自动回复、菜单管理、素材管理、用户管理、消息群发等基础功能外，还有二维码推广、营销活动、微网站、会员卡、优惠券等。
 
-> zheng-ucenter-app 
+> spider-wechat-app 
 
 微信小程序后台
 
-> zheng-shop
-
-电子商务系统
-
-> zheng-im
-
-即时通讯系统
-
-> zheng-oa
-
-办公自动化系统
-
-> zheng-eoms
-
-运维系统
 
 ## 环境搭建（QQ群内有“zheng环境搭建和系统部署文档.doc”）
 
@@ -174,8 +159,8 @@ Spring+SpringMVC+Mybatis框架集成公共模块，包括公共配置、MybatisG
 - Navicat for MySQL: 数据库客户端
 
 #### 开发环境：
-- Jdk7
-- Mysql5.5
+- Jdk7+
+- Mysql5.5+
 - Redis
 - Zookeeper
 - ActiveMQ
@@ -183,7 +168,7 @@ Spring+SpringMVC+Mybatis框架集成公共模块，包括公共配置、MybatisG
 
 ### 工具安装
 
-[环境搭建和系统部署文档(作者：小兵)](http://git.oschina.net/shuzheng/zheng/attach_files "环境搭建和系统部署文档(作者：小兵)")
+环境搭建和系统部署文档(作者：小兵，QQ群共享提供下载)
 
 ### 资源下载
 
@@ -207,50 +192,56 @@ Spring+SpringMVC+Mybatis框架集成公共模块，包括公共配置、MybatisG
 
 ### 修改本地Host
 
-- 127.0.0.1	ui.zhangshuzheng.cn
-- 127.0.0.1	upms.zhangshuzheng.cn
-- 127.0.0.1	cms.zhangshuzheng.cn
-- 127.0.0.1	pay.zhangshuzheng.cn
-- 127.0.0.1	ucenter.zhangshuzheng.cn
-- 127.0.0.1	wechat.zhangshuzheng.cn
-- 127.0.0.1	api.zhangshuzheng.cn
-- 127.0.0.1	oss.zhangshuzheng.cn
+- 127.0.0.1	ui.spider.cn
+- 127.0.0.1	upms.spider.cn
+- 127.0.0.1	cms.spider.cn
+- 127.0.0.1	pay.spider.cn
+- 127.0.0.1	ucenter.spider.cn
+- 127.0.0.1	wechat.spider.cn
+- 127.0.0.1	api.spider.cn
+- 127.0.0.1	oss.spider.cn
+
+
+- 127.0.0.1	zkserver
+- 127.0.0.1	rdserver
+- 127.0.0.1	dbserver
+- 127.0.0.1	mqserver
 
 ### 编译流程
 
-maven编译安装zheng/pom.xml文件即可
+maven编译安装spider/pom.xml文件即可
 
 ### 启动顺序（后台）
 
 > 准备工作
 
-- 新建zheng数据库，导入project-datamodel文件夹下的zheng.sql
+- 新建spider数据库，导入project-datamodel文件夹下的zheng.sql
 
-- 修改各dao模块和rpc-service模块的redis.properties、jdbc.properties、generator.properties数据库连接等配置信息，其中master.redis.password、master.jdbc.password、slave.jdbc.password、generator.jdbc.password密码值使用了AES加密，请使用com.zheng.common.util.AESUtil工具类修改这些值
+- 修改各dao模块和rpc-service模块的redis.properties、jdbc.properties、generator.properties数据库连接等配置信息，其中master.redis.password、master.jdbc.password、slave.jdbc.password、generator.jdbc.password密码值使用了AES加密，请使用com.spider.common.util.AESUtil工具类修改这些值
 
 > **zheng-upms**
 
-- 首先启动 zheng-upms-rpc-service(直接运行src目录下的ZhengUpmsRpcServiceApplication#main方法启动) => zheng-upms-server(jetty)，然后按需启动对应子系统xxx的zheng-xxx-rpc-service(main方法) => zheng-xxx-webapp(jetty)
+- 首先启动 spider-upms-rpc-service(直接运行src目录下的SpiderUpmsRpcServiceApplication#main方法启动) => spider-upms-server(jetty)，然后按需启动对应子系统xxx的spider-xxx-rpc-service(main方法) => spider-xxx-webapp(jetty)
 
 ![启动演示](project-bootstrap/start.png)
 
-- 访问 [http://upms.zhangshuzheng.cn:1111/](http://upms.zhangshuzheng.cn:1111/ "统一后台地址")，子系统菜单已经配置到zheng-upms权限中，不用直接访问子系统，默认帐号密码：admin/123456
+- 访问 [http://upms.spider.cn:1111/](http://upms.spider.cn:1111/ "统一后台地址")，子系统菜单已经配置到spider-upms权限中，不用直接访问子系统，默认帐号密码：admin/123456
 
 - 登录成功后，可在右上角切换已注册系统访问
 
 > **zheng-cms**
 
-- zheng-cms-admin：启动ActiveMQ-启动 => 启动zheng-rpc-service => 启动zheng-cms-admin
+- spdier-cms-admin：启动ActiveMQ-启动 => 启动spdier-rpc-service => 启动spdier-cms-admin
 
-- zheng-cms-web：启动nginx代理zheng-ui静态资源，配置文件可参考 [nginx.conf](http://git.oschina.net/shuzheng/zheng/attach_files)
+- spider-cms-web：启动nginx代理spider-ui静态资源，配置文件可参考 [nginx.conf](http://git.oschina.net/shuzheng/zheng/attach_files)
 
 > **zheng-oss**
 
 - 首先启动zheng-oss-web服务
 
-- 开发阶段，如果zheng-oss-web没有公网域名，推荐使用`ngrok`内网穿透工具，为开发环境提供公网域名，实现上传回调
+- 开发阶段，如果spider-oss-web没有公网域名，推荐使用`ngrok`内网穿透工具，为开发环境提供公网域名，实现上传回调
 
-- 启动nginx代理zheng-ui静态资源
+- 启动nginx代理spider-ui静态资源
 
 
 ### 开发演示（QQ群内有“zheng十分钟视频：从检出到启动.wmv”）
@@ -347,13 +338,13 @@ maven编译安装zheng/pom.xml文件即可
 
 - Eclipse下，dubbo找不到dubbo.xsd报错，不影响使用，如果要解决，可参考 [http://blog.csdn.net/gjldwz/article/details/50555922](http://blog.csdn.net/gjldwz/article/details/50555922)
 
-- 报zheng-xxx.jar包找不到,请按照文档编译顺序，将源代码编译并安装到本地maven仓库
+- 报spider-xxx.jar包找不到,请按照文档编译顺序，将源代码编译并安装到本地maven仓库
 
-- zheng-cms-admin启动卡住：因为没有启动activemq
+- spider-cms-admin启动卡住：因为没有启动activemq
 
-- zheng-upms-server访问报session不存在：因为没有启动redis服务
+- spider-upms-server访问报session不存在：因为没有启动redis服务
 
-- 界面没有样式：因为zheng-admin没有编译安装到本地仓库
+- 界面没有样式：因为spider-admin没有编译安装到本地仓库
 
 ## 附件
 
