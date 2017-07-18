@@ -35,7 +35,6 @@
         <module>spider-shop</module>
         <module>spider-ucenter</module>
         <module>spider-wechat</module>
-        <module>spider-upms</module>
     </modules>
 
 

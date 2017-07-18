@@ -22,8 +22,8 @@
     <dependencies>
         <dependency>
             <groupId>com.spider</groupId>
-            <artifactId>spider-upms-common</artifactId>
-            <version>1.0.0</version>
+            <artifactId>spider-cms-common</artifactId>
+            <type>jar</type>
         </dependency>
     </dependencies>
 
