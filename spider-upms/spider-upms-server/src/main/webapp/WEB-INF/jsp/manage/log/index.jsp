@@ -51,16 +51,16 @@ $(function() {
 		columns: [
 			{field: 'ck', checkbox: true},
 			{field: 'logId', title: '编号', sortable: true, align: 'center'},
-			{field: 'description', title: '操作'},
-            {field: 'username', title: '操作用户'},
-			{field: 'startTime', title: '操作时间'},
-			{field: 'spendTime', title: '耗时'},
-			{field: 'url', title: '请求路径'},
-			{field: 'method', title: '请求类型'},
-			{field: 'parameter', title: '请求参数'},
-			{field: 'userAgent', title: '用户标识'},
-			{field: 'ip', title: 'IP地址'},
-			{field: 'permissions', title: '权限值'}
+			{field: 'description', title: '操作', align: 'center'},
+            {field: 'username', title: '操作用户', align: 'center'},
+			{field: 'startTime', title: '操作时间', align: 'center'},
+			{field: 'spendTime', title: '耗时', align: 'center'},
+			{field: 'url', title: '请求路径',  align: 'center'},
+			{field: 'method', title: '请求类型',  align: 'center'},
+			{field: 'parameter', title: '请求参数',  align: 'center'},
+			{field: 'userAgent', title: '用户标识',  align: 'center'},
+			{field: 'ip', title: 'IP地址',  align: 'center'},
+			{field: 'permissions', title: '权限值',  align: 'center'}
 		]
 	});
 });

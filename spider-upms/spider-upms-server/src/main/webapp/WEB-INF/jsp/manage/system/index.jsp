@@ -54,9 +54,9 @@ $(function() {
 			{field: 'ck', checkbox: true},
 			{field: 'systemId', title: '编号', sortable: true, align: 'center'},
 			{field: 'icon', title: '图标', sortable: true, align: 'center', formatter: 'iconFormatter'},
-            {field: 'title', title: '系统标题'},
-			{field: 'name', title: '系统名称'},
-			{field: 'basepath', title: '根目录'},
+            {field: 'title', title: '系统标题', align: 'center'},
+			{field: 'name', title: '系统名称', align: 'center'},
+			{field: 'basepath', title: '根目录', align: 'center'},
 			{field: 'status', title: '状态', sortable: true, align: 'center', formatter: 'statusFormatter'},
 			{field: 'action', title: '操作', align: 'center', formatter: 'actionFormatter', events: 'actionEvents', clickToSelect: false}
 		]
