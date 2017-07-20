@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @BaseService
 public class CmsMenuServiceImpl extends BaseServiceImpl<CmsMenuMapper, CmsMenu, CmsMenuExample> implements CmsMenuService {
-    CmsMenu
+
     private static Logger logger = LoggerFactory.getLogger(CmsMenuServiceImpl.class);
 
     @Autowired
