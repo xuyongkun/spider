@@ -84,7 +84,7 @@
         });
         uploader.on( 'fileQueued', function(file) {
             $.ajax({
-                url: '${ZHENG_OSS_ALIYUN_OSS_POLICY}',
+                url: '${SPIDER_OSS_ALIYUN_OSS_POLICY}',
                 type: 'GET',
                 dataType: 'jsonp',
                 jsonp: 'callback',

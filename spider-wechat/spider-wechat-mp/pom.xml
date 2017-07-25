@@ -2,19 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spider-wechat</artifactId>
+        <groupId>com.spider</groupId>
+        <version>1.0.0</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.spider</groupId>
-    <artifactId>spider-wechat</artifactId>
-    <version>1.0.0</version>
-    <modules>
-        <module>spider-wechat-mp</module>
-        <module>spider-wechat-app</module>
-    </modules>
+    <artifactId>spider-wechat-mp</artifactId>
     <packaging>pom</packaging>
 
-    <name>spider-wechat</name>
-    <url>http://www.kenny.cn</url>
+    <name>spider-wechat-mp</name>
+    <url>http://www.spider.cn</url>
+
+    <modules>
+        <module>spider-wechat-mp-admin</module>
+        <module>spider-wechat-mp-dao</module>
+        <module>spider-wechat-mp-service</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
