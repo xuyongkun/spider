@@ -8,6 +8,11 @@
     <groupId>com.spider</groupId>
     <artifactId>spider-pay</artifactId>
     <version>1.0.0</version>
+    <modules>
+        <module>spider-pay-admin</module>
+        <module>spider-pay-common</module>
+        <module>spider-pay-dao</module>
+    </modules>
     <packaging>pom</packaging>
 
     <name>spider-pay</name>
