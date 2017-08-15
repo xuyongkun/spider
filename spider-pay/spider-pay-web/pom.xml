@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <artifactId>spider-pay</artifactId>
         <groupId>com.spider</groupId>
@@ -9,11 +7,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spider-pay-admin</artifactId>
+    <artifactId>spider-pay-web</artifactId>
     <packaging>war</packaging>
 
-    <name>spider-pay-admin Maven Webapp</name>
-    <url>http://www.spider.com</url>
+    <name>spider-pay-web Maven Webapp</name>
+    <url>http://maven.apache.org</url>
 
     <dependencies>
         <dependency>
@@ -22,9 +20,11 @@
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>com.spider</groupId>
-            <artifactId>spider-admin</artifactId>
-            <version>1.0.0</version>
+            <groupId>com.alipay</groupId>
+            <artifactId>sdk-java</artifactId>
+            <version>20170324180803</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/alipay-sdk-java20170324180803.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -70,7 +70,7 @@
     </profiles>
 
     <build>
-        <finalName>spider-pay-admin</finalName>
+
         <filters>
             <filter>src/main/resources/profiles/${env}.properties</filter>
         </filters>
@@ -85,14 +85,15 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.0.0.v20130308</version>
+                <!--<version>9.0.0.v20130308</version>-->
+                <version>9.2.7.v20150116</version>
                 <configuration>
                     <scanIntervalSeconds>3</scanIntervalSeconds>
                     <webApp>
-                        <contextPath>/zheng-pay-admin</contextPath>
+                        <contextPath>/</contextPath>
                     </webApp>
                     <httpConnector>
-                        <port>3331</port>
+                        <port>3332</port>
                     </httpConnector>
                     <reload>automatic</reload>
                 </configuration>
@@ -106,7 +107,5 @@
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
-        </plugins>
-    </build>
-
+        </plugins>    </build>
 </project>

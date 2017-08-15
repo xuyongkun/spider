@@ -14,6 +14,8 @@
         <module>spider-pay-dao</module>
         <module>spider-pay-rpc-api</module>
         <module>spider-pay-rpc-service</module>
+        <module>spider-pay-sdk</module>
+        <module>spider-pay-web</module>
     </modules>
     <packaging>pom</packaging>
 
