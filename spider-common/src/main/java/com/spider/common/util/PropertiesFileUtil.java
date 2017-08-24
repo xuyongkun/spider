@@ -7,8 +7,7 @@ import java.util.ResourceBundle;
 
 /**
  * 资源文件读取工具
- * @author shuzheng
- * @date 2016年10月15日
+ * Created by kenny on 2017/8/24
  */
 public class PropertiesFileUtil {
 
