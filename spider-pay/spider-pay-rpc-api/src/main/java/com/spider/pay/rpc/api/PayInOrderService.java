@@ -1,6 +1,6 @@
 package com.spider.pay.rpc.api;
 
-import com.zheng.common.base.BaseService;
+import com.spider.common.base.BaseService;
 import com.spider.pay.dao.model.PayInOrder;
 import com.spider.pay.dao.model.PayInOrderExample;
 
