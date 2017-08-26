@@ -1,6 +1,7 @@
 package com.spider.upms.server;
 
 
+import com.spider.common.util.PropertiesFileUtil;
 import com.spider.upms.dao.model.UpmsSystemExample;
 import com.spider.upms.rpc.api.UpmsSystemService;
 import org.junit.Test;
@@ -29,6 +30,14 @@ public class UpmsServiceTest {
     public void index() {
         int count = upmsSystemService.countByExample(new UpmsSystemExample());
         System.out.println(count);
+    }
+
+
+    public static void main(String args[]) {
+
+        String ps = PropertiesFileUtil.getInstance("redis").get("master.redis.password");
+        System.out.println("测试：" + ps);
+
     }
 
 }

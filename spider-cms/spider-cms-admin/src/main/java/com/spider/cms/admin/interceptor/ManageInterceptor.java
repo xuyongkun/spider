@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 后台过滤器
- * Created by ZhangShuzheng on 2017/01/12.
+ * Created by kenny on 2017/8/25
  */
 public class ManageInterceptor extends HandlerInterceptorAdapter {
 
