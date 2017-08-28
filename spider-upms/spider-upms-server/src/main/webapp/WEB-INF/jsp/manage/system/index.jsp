@@ -19,8 +19,8 @@
 <div id="main">
 	<div id="toolbar">
 		<shiro:hasPermission name="upms:system:create"><a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增系统</a></shiro:hasPermission>
-		<shiro:hasPermission name="upms:system:update"><a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i class="zmdi zmdi-edit"></i> 编辑系统</a></shiro:hasPermission>
-		<shiro:hasPermission name="upms:system:delete"><a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-close"></i> 删除系统</a></shiro:hasPermission>
+		<%--<shiro:hasPermission name="upms:system:update"><a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i class="zmdi zmdi-edit"></i> 编辑系统</a></shiro:hasPermission>
+		<shiro:hasPermission name="upms:system:delete"><a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-close"></i> 删除系统</a></shiro:hasPermission>--%>
 	</div>
 	<table id="table"></table>
 </div>
@@ -51,7 +51,7 @@ $(function() {
 		maintainSelected: true,
 		toolbar: '#toolbar',
 		columns: [
-			{field: 'ck', checkbox: true},
+			/*{field: 'ck', checkbox: true},*/
 			{field: 'systemId', title: '编号', sortable: true, align: 'center'},
 			{field: 'icon', title: '图标', sortable: true, align: 'center', formatter: 'iconFormatter'},
             {field: 'title', title: '系统标题', align: 'center'},
@@ -65,8 +65,8 @@ $(function() {
 // 格式化操作按钮
 function actionFormatter(value, row, index) {
     return [
-        '<a class="update" href="javascript:;" onclick="updateAction()" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-edit"></i></a>　',
-        '<a class="delete" href="javascript:;" onclick="deleteAction()" data-toggle="tooltip" title="Remove"><i class="glyphicon glyphicon-remove"></i></a>'
+        '<a class="update" href="javascript:;" onclick="updateAction(\'' + row.systemId + '\')" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-edit"></i></a>　',
+        '<a class="delete" href="javascript:;" onclick="deleteAction(\'' + row.systemId + '\')" data-toggle="tooltip" title="Remove"><i class="glyphicon glyphicon-remove"></i></a>'
     ].join('');
 }
 // 格式化图标
@@ -96,131 +96,97 @@ function createAction() {
 }
 // 编辑
 var updateDialog;
-function updateAction() {
-	var rows = $table.bootstrapTable('getSelections');
-	if (rows.length != 1) {
-		$.confirm({
-			title: false,
-			content: '请选择一条记录！',
-			autoClose: 'cancel|3000',
-			backgroundDismiss: true,
-			buttons: {
-				cancel: {
-					text: '取消',
-					btnClass: 'waves-effect waves-button'
-				}
-			}
-		});
-	} else {
-		updateDialog = $.dialog({
-			animationSpeed: 300,
-			title: '编辑系统',
-			content: 'url:${basePath}/manage/system/update/' + rows[0].systemId,
-			onContentReady: function () {
-				initMaterialInput();
-				initUploader();
-			}
-		});
-	}
+function updateAction(systemId) {
+    updateDialog = $.dialog({
+        animationSpeed: 300,
+        title: '编辑系统',
+        content: 'url:${basePath}/manage/system/update/' + systemId,
+        onContentReady: function () {
+            initMaterialInput();
+            initUploader();
+        }
+    });
 }
 // 删除
 var deleteDialog;
-function deleteAction() {
-	var rows = $table.bootstrapTable('getSelections');
-	if (rows.length == 0) {
-		$.confirm({
-			title: false,
-			content: '请至少选择一条记录！',
-			autoClose: 'cancel|3000',
-			backgroundDismiss: true,
-			buttons: {
-				cancel: {
-					text: '取消',
-					btnClass: 'waves-effect waves-button'
-				}
-			}
-		});
-	} else {
-		deleteDialog = $.confirm({
-			type: 'red',
-			animationSpeed: 300,
-			title: false,
-			content: '确认删除该系统吗？',
-			buttons: {
-				confirm: {
-					text: '确认',
-					btnClass: 'waves-effect waves-button',
-					action: function () {
-						var ids = new Array();
-						for (var i in rows) {
-							ids.push(rows[i].systemId);
-						}
-						$.ajax({
-							type: 'get',
-							url: '${basePath}/manage/system/delete/' + ids.join("-"),
-							success: function(result) {
-								if (result.code != 1) {
-									if (result.data instanceof Array) {
-										$.each(result.data, function(index, value) {
-											$.confirm({
-												theme: 'dark',
-												animation: 'rotateX',
-												closeAnimation: 'rotateX',
-												title: false,
-												content: value.errorMsg,
-												buttons: {
-													confirm: {
-														text: '确认',
-														btnClass: 'waves-effect waves-button waves-light'
-													}
-												}
-											});
-										});
-									} else {
-										$.confirm({
-											theme: 'dark',
-											animation: 'rotateX',
-											closeAnimation: 'rotateX',
-											title: false,
-											content: result.data.errorMsg,
-											buttons: {
-												confirm: {
-													text: '确认',
-													btnClass: 'waves-effect waves-button waves-light'
-												}
-											}
-										});
-									}
-								} else {
-									deleteDialog.close();
-									$table.bootstrapTable('refresh');
-								}
-							},
-							error: function(XMLHttpRequest, textStatus, errorThrown) {
-								$.confirm({
-									theme: 'dark',
-									animation: 'rotateX',
-									closeAnimation: 'rotateX',
-									title: false,
-									content: textStatus,
-									buttons: {
-										confirm: {
-											text: '确认',
-											btnClass: 'waves-effect waves-button waves-light'
-										}
-									}
-								});
-							}
-						});
-					}
-				},
-				cancel: {
-					text: '取消',
-					btnClass: 'waves-effect waves-button'
-				}
-			}
-		});
-	}
+function deleteAction(systemId) {
+    deleteDialog = $.confirm({
+        type: 'red',
+        animationSpeed: 300,
+        title: false,
+        content: '确认删除该系统吗？',
+        buttons: {
+            confirm: {
+                text: '确认',
+                btnClass: 'waves-effect waves-button',
+                action: function () {
+                    var ids = new Array();
+                    ids.push(systemId);
+                    $.ajax({
+                        type: 'get',
+                        url: '${basePath}/manage/system/delete/' + ids.join("-"),
+                        success: function(result) {
+                            if (result.code != 1) {
+                                if (result.data instanceof Array) {
+                                    $.each(result.data, function(index, value) {
+                                        $.confirm({
+                                            theme: 'dark',
+                                            animation: 'rotateX',
+                                            closeAnimation: 'rotateX',
+                                            title: false,
+                                            content: value.errorMsg,
+                                            buttons: {
+                                                confirm: {
+                                                    text: '确认',
+                                                    btnClass: 'waves-effect waves-button waves-light'
+                                                }
+                                            }
+                                        });
+                                    });
+                                } else {
+                                    $.confirm({
+                                        theme: 'dark',
+                                        animation: 'rotateX',
+                                        closeAnimation: 'rotateX',
+                                        title: false,
+                                        content: result.data.errorMsg,
+                                        buttons: {
+                                            confirm: {
+                                                text: '确认',
+                                                btnClass: 'waves-effect waves-button waves-light'
+                                            }
+                                        }
+                                    });
+                                }
+                            } else {
+                                deleteDialog.close();
+                                $table.bootstrapTable('refresh');
+                            }
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            $.confirm({
+                                theme: 'dark',
+                                animation: 'rotateX',
+                                closeAnimation: 'rotateX',
+                                title: false,
+                                content: textStatus,
+                                buttons: {
+                                    confirm: {
+                                        text: '确认',
+                                        btnClass: 'waves-effect waves-button waves-light'
+                                    }
+                                }
+                            });
+                        }
+                    });
+                }
+            },
+            cancel: {
+                text: '取消',
+                btnClass: 'waves-effect waves-button'
+            }
+        }
+    });
 }
 </script>
 </body>

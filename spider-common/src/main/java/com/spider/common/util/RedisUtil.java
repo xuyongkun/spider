@@ -86,9 +86,6 @@ public class RedisUtil {
 	public synchronized static Jedis getJedis() {
 		poolInit();
 		Jedis jedis = null;
-
-		String password = PropertiesFileUtil.getInstance("redis").get("master.redis.password");
-		System.out.println("密码为：" + password);
 		try {
 			if (null != jedisPool) {
 				jedis = jedisPool.getResource();

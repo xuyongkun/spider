@@ -181,7 +181,7 @@
 		<div class="content_main">
 			<div id="iframe_home" class="iframe cur">
 				<p><h4>通用用户权限管理系统</h4></p>
-				<p><b>演示地址</b>：<a href="http://www.spider.cn/spiderAdmin" target="_blank">http://www.spider.cn/spiderAdmin</a></p>
+				<p><b>演示地址</b>：<a href="http://www.spider.cn/spiderAdmin" target="_blank">http://www.zhangshuzheng.cn/zhengAdmin</a></p>
 				<p><b>系统简介</b>：本系统是基于RBAC授权和基于用户授权的细粒度权限控制通用平台，并提供单点登录、会话管理和日志管理。接入的系统可自由定义组织、角色、权限、资源等。</p><br/>
 				<p><h4>系统功能概述：</h4></p>
 				<p><b>系统组织管理</b>：系统和组织增加、删除、修改、查询功能。</p>
@@ -195,7 +195,7 @@
 				<p><b>系统组织数据接口</b>、<b>用户角色数据接口</b>、<b>资源权限数据接口</b>、<b>单点登录(SSO)接口</b>、<b>用户鉴权接口</b></p><br/>
 				<p><h4>关于作者</h4></p>
 				<p><b>姓　　名</b>：kenny</p>
-				<p><b>电子邮箱</b>：943377061@qq.com</p>
+				<p><b>电子邮箱</b>：xuyongkun22@163.com</p>
 			</div>
 		</div>
 	</section>
