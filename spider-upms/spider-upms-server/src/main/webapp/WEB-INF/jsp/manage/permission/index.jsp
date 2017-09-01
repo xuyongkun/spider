@@ -19,7 +19,6 @@
 <div id="main">
 	<div id="toolbar">
 		<shiro:hasPermission name="upms:permission:create"><a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i class="zmdi zmdi-plus"></i> 新增权限</a></shiro:hasPermission>
-		<shiro:hasPermission name="upms:permission:update"><a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i class="zmdi zmdi-edit"></i> 编辑权限</a></shiro:hasPermission>
 		<shiro:hasPermission name="upms:permission:delete"><a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i class="zmdi zmdi-close"></i> 删除权限</a></shiro:hasPermission>
 	</div>
 	<table id="table"></table>
@@ -68,8 +67,8 @@ $(function() {
 // 格式化操作按钮
 function actionFormatter(value, row, index) {
     return [
-		'<a class="update" href="javascript:;" onclick="updateAction()" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-edit"></i></a>　',
-		'<a class="delete" href="javascript:;" onclick="deleteAction()" data-toggle="tooltip" title="Remove"><i class="glyphicon glyphicon-remove"></i></a>'
+		'<a class="update" href="javascript:;" onclick="updateAction(\'' + row.permissionId + '\')" data-toggle="tooltip" title="Edit"><i class="glyphicon glyphicon-edit"></i></a>　',
+		'<a class="delete" href="javascript:;" onclick="deleteActionThis(\'' + row.permissionId + '\')" data-toggle="tooltip" title="Remove"><i class="glyphicon glyphicon-remove"></i></a>'
     ].join('');
 }
 // 格式化图标
@@ -112,39 +111,117 @@ function createAction() {
 }
 // 编辑
 var updateDialog;
-function updateAction() {
-	var rows = $table.bootstrapTable('getSelections');
-	if (rows.length != 1) {
-		$.confirm({
-			title: false,
-			content: '请选择一条记录！',
-			autoClose: 'cancel|3000',
-			backgroundDismiss: true,
-			buttons: {
-				cancel: {
-					text: '取消',
-					btnClass: 'waves-effect waves-button'
-				}
-			}
-		});
-	} else {
-		updateDialog = $.dialog({
-			animationSpeed: 300,
-			title: '编辑权限',
-			content: 'url:${basePath}/manage/permission/update/' + rows[0].permissionId,
-			onContentReady: function () {
-				initMaterialInput();
-				$('select').select2();
-				initType();
-				initSelect2();
-			}
-		});
-	}
+function updateAction(permissionId) {
+    updateDialog = $.dialog({
+        animationSpeed: 300,
+        title: '编辑权限',
+        content: 'url:${basePath}/manage/permission/update/' + permissionId,
+        onContentReady: function () {
+            initMaterialInput();
+            $('select').select2();
+            initType();
+            initSelect2();
+        }
+    });
 }
-// 删除
+
+
+
+
 var deleteDialog;
-function deleteAction() {
+//单个删除
+function deleteActionThis(permissionId) {
+    deleteDialog = $.confirm({
+        type: 'red',
+        animationSpeed: 300,
+        title: false,
+        content: '确认删除该权限吗？',
+        buttons: {
+            confirm: {
+                text: '确认',
+                btnClass: 'waves-effect waves-button',
+                action: function () {
+                    var ids = new Array();
+                    for (var i in rows) {
+                        ids.push(rows[i].permissionId);
+                    }
+                    $.ajax({
+                        type: 'get',
+                        url: '${basePath}/manage/permission/delete/' + ids.join("-"),
+                        success: function(result) {
+                            if (result.code != 1) {
+                                if (result.data instanceof Array) {
+                                    $.each(result.data, function(index, value) {
+                                        $.confirm({
+                                            theme: 'dark',
+                                            animation: 'rotateX',
+                                            closeAnimation: 'rotateX',
+                                            title: false,
+                                            content: value.errorMsg,
+                                            buttons: {
+                                                confirm: {
+                                                    text: '确认',
+                                                    btnClass: 'waves-effect waves-button waves-light'
+                                                }
+                                            }
+                                        });
+                                    });
+                                } else {
+                                    $.confirm({
+                                        theme: 'dark',
+                                        animation: 'rotateX',
+                                        closeAnimation: 'rotateX',
+                                        title: false,
+                                        content: result.data.errorMsg,
+                                        buttons: {
+                                            confirm: {
+                                                text: '确认',
+                                                btnClass: 'waves-effect waves-button waves-light'
+                                            }
+                                        }
+                                    });
+                                }
+                            } else {
+                                deleteDialog.close();
+                                $table.bootstrapTable('refresh');
+                            }
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            $.confirm({
+                                theme: 'dark',
+                                animation: 'rotateX',
+                                closeAnimation: 'rotateX',
+                                title: false,
+                                content: textStatus,
+                                buttons: {
+                                    confirm: {
+                                        text: '确认',
+                                        btnClass: 'waves-effect waves-button waves-light'
+                                    }
+                                }
+                            });
+                        }
+                    });
+                }
+            },
+            cancel: {
+                text: '取消',
+                btnClass: 'waves-effect waves-button'
+            }
+        }
+    });
+}
+
+// 删除(批量)
+function deleteAction(permissionId) {
+    alert(permissionId);
+
 	var rows = $table.bootstrapTable('getSelections');
+    var ids = new Array();
+    for (var i in rows) {
+        ids.push(rows[i].permissionId);
+    }
+
 	if (rows.length == 0) {
 		$.confirm({
 			title: false,
@@ -169,10 +246,6 @@ function deleteAction() {
 					text: '确认',
 					btnClass: 'waves-effect waves-button',
 					action: function () {
-						var ids = new Array();
-						for (var i in rows) {
-							ids.push(rows[i].permissionId);
-						}
 						$.ajax({
 							type: 'get',
 							url: '${basePath}/manage/permission/delete/' + ids.join("-"),

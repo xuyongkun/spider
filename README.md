@@ -111,15 +111,15 @@ Spring+SpringMVC+Mybatis框架集成公共模块，包括公共配置、MybatisG
 - **七牛云**
 - 本地分布式存储
 
-![阿里云OSS](project-bootstrap/aliyun-oss-post-callback.png)
+![阿里云OSS](doc/aliyun-oss-post-callback.png)
 
 > spider-api
 
-接口总线系统，对外暴露统一规范的接口，包括各个子系统的交互接口、对外开放接口、开发加密接口、接口文档等服务，示例图：
+服务网关，对外暴露统一规范的接口和包装响应结果，包括各个子系统的交互接口、对外开放接口、开发加密接口、接口文档等服务，可在该模块支持验签、鉴权、路由、限流、监控、容错、日志等功能。示例图：
 
-![API网关](project-bootstrap/zheng-api.png)
+![API网关](doc/gateway_config.png)
 
-
+s
 > spider-cms
 
 内容管理系统：支持多标签、多类目、强大评论的内容管理，有基本单页展示，菜单管理，系统设置等功能。
